@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sean Sonderegger">
+    <meta name="description" content="Music Player Application utilizing JavaScript and Node. Allows users to create and manage playlists of their favorite songs.">
+    <title>CSE310MusicPlayer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles/musicPlayer.css">
+</head>
+<body>
+<h1>Add a Song</h1>
+
+
+<form action="/player" method="POST">
+<label>
+Song Title:
+<input type="text" name="title" required />
+</label><br /><br />
+
+
+<label>
+Artist:
+<input type="text" name="artist" required />
+</label><br /><br />
+
+
+<label>
+Genre:
+<select name="genre">
+<option>Rock</option>
+<option>Pop</option>
+<option>Jazz</option>
+<option>Hip-Hop</option>
+</select>
+</label><br /><br />
+
+
+<button type="submit">Play Song</button>
+</form>
+
+
+<a href="/playlist">View Playlist</a>
+</body>
+</html>

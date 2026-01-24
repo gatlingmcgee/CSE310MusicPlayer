@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="styles/musicPlayer.css">
 </head>
 <body>
-    <h1>My Music Player</h1>
-    <p>Need audio</p>
-    <p>Need songs</p>
+<h1>Now Playing</h1>
 
-    <label for="todoInput">To-Do:</label>
-    <input type="text" id="todoInput" name="todoInput">
 
-    <label for="deadlineInput">Deadline:</label>
-    <input type="date" id="deadlineInput" name="deadlineInput">
+<p><strong>Title:</strong> <%= title %></p>
+<p><strong>Artist:</strong> <%= artist %></p>
+<p><strong>Genre:</strong> <%= genre %></p>
 
-    <button id="button">Enter Task</button>
 
-    <ul id="todoList"></ul>
+<button onclick="alert('Playing <%= title %>')">Play</button>
+<button onclick="alert('Paused')">Pause</button>
 
-    <script src="scripts/musicPlayer.js"></script>
+
+<br /><br />
+<a href="/">Add Another Song</a> |
+<a href="/playlist">Go to Playlist</a>
 </body>
 </html>
