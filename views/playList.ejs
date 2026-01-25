@@ -14,21 +14,32 @@
 
 <h1>Playlist</h1>
 
-<% if (playlist.length === 0) { %>
-  <p>No songs in playlist.</p>
-<% } else { %>
-  <% playlist.forEach(song => { %>
-    <h3><%= song.title %></h3>
-    <p><%= song.artist %> (<%= song.genre %>)</p>
+<div id="playlist"></div>
 
-    <iframe
-      width="300"
-      height="170"
-      src="https://www.youtube.com/embed/<%= song.videoId %>">
-    </iframe>
-    <hr />
-  <% }) %>
-<% } %>
+<script>
+  const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
+  const container = document.getElementById("playlist");
+
+  if (playlist.length === 0) {
+    container.innerHTML = "<p>No songs in playlist.</p>";
+  } else {
+    playlist.forEach(song => {
+      const songHTML = `
+        <h3>${song.title}</h3>
+        <p>${song.artist} (${song.genre})</p>
+        <iframe
+          width="300"
+          height="170"
+          src="https://www.youtube.com/embed/${song.videoId}"
+          allowfullscreen>
+        </iframe>
+        <hr />
+      `;
+      container.insertAdjacentHTML("beforeend", songHTML);
+    });
+  }
+</script>
+
 
 <a href="/">Add More Songs</a>
 

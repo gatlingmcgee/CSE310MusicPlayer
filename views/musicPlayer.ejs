@@ -19,12 +19,47 @@
 <p><strong>Genre:</strong> <%= genre %></p>
 
 
-<button onclick="alert('Playing <%= title %>')">Play</button>
-<button onclick="alert('Paused')">Pause</button>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/<%= videoId %>"
+  frameborder="0"
+  allow="encrypted-media"
+  allowfullscreen>
+</iframe>
+
 
 
 <br /><br />
 <a href="/">Add Another Song</a> |
 <a href="/playlist">Go to Playlist</a>
+
+
+<script>
+  const song = {
+    title: "<%= title %>",
+    artist: "<%= artist %>",
+    genre: "<%= genre %>",
+    videoId: "<%= videoId %>"
+  };
+
+  // Get existing playlist or create empty array
+  const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
+
+  // Add new song
+  playlist.push(song);
+
+  // Save back to localStorage
+  localStorage.setItem("playlist", JSON.stringify(playlist));
+</script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
