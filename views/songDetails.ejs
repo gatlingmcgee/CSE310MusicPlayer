@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Song Details</title>
+</head>
+<body>
+
+<h1><%= title %></h1>
+<img src="<%= thumbnail %>" width="300" />
+
+<p><strong>Artist / Channel:</strong> <%= artist %></p>
+<p><strong>Views:</strong> <%= views %></p>
+<p><strong>Likes:</strong> <%= likes %></p>
+<p><strong>Published:</strong> <%= new Date(published).toDateString() %></p>
+
+<p><strong>Description:</strong></p>
+<p><%= description %></p>
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/<%= videoId %>"
+  allowfullscreen>
+</iframe>
+
+<br /><br />
+<a href="/playlist">Back to Playlist</a>
+
+</body>
+</html>

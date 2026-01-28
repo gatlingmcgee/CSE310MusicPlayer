@@ -25,7 +25,10 @@
   } else {
     playlist.forEach(song => {
       const songHTML = `
-        <h3>${song.title}</h3>
+        <h3>
+          <a href="/song/${song.videoId}">${song.title}</a>
+        </h3>
+
         <p>${song.artist} (${song.genre})</p>
         <iframe
           width="300"
