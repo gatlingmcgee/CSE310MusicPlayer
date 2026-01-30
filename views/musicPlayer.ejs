@@ -13,13 +13,11 @@
 </head>
 <body>
 <h1>Now Playing</h1>
-
-
-<p><strong>Title:</strong> <%= title %></p>
-<p><strong>Artist:</strong> <%= artist %></p>
-<p><strong>Genre:</strong> <%= genre %></p>
-
-
+<!-- song details -->
+  <p><strong>Title:</strong> <%= title %></p>
+  <p><strong>Artist:</strong> <%= artist %></p>
+  <p><strong>Genre:</strong> <%= genre %></p>
+  <!-- container for styling of video -->
 <div class="iframeContainer">
   <iframe
   width="560"
@@ -30,15 +28,13 @@
   allowfullscreen>
   </iframe>
 </div>
-
-
+<!-- navigation links -->
 <div class="nowPlayingDiv">
   <br /><br />
   <a href="/" class="secondaryLink">Add Another Song</a> |
   <a href="/playlist" class="secondaryLink">Go to Playlist</a>
 </div>
-
-
+<!-- script to build playlist -->
 <script>
   const song = {
     title: "<%= title %>",
@@ -46,28 +42,18 @@
     genre: "<%= genre %>",
     videoId: "<%= videoId %>"
   };
-
+  // playlist in local storage
   const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
-
+  // validation to prevent duplicate songs
   const alreadyExists = playlist.some(s => s.videoId === song.videoId);
-
   if (!alreadyExists) {
     playlist.push(song);
     localStorage.setItem("playlist", JSON.stringify(playlist));
+    // message to confirm addition or duplication
     alert("Song added to playlist!");
   } else {
     alert("This song is already in your playlist!");
   }
 </script>
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

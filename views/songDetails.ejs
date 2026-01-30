@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/musicPlayer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sean Sonderegger">
+    <meta name="description" content="Music Player Application utilizing JavaScript and Node. Displays detailed information about a selected song from API.">
+    <title>CSE310MusicPlayer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/styles/musicPlayer.css">
   <title>Song Details</title>
 </head>
 <body>
-
+  <!-- song details -->
 <h1><%= title %></h1>
 <img class="imageYoutube" src="<%= thumbnail %>" width="300" />
 
@@ -15,10 +21,10 @@
 <p><strong>Views:</strong> <%= views %></p>
 <p><strong>Likes:</strong> <%= likes %></p>
 <p><strong>Published:</strong> <%= new Date(published).toDateString() %></p>
-
 <p><strong>Description:</strong></p>
 <p><%= description %></p>
 
+<!-- container for layout-->
 <div class="iframeContainer">
   <iframe
     width="560"
@@ -29,7 +35,7 @@
 </div>
 
 <br /><br />
+<!-- navigation back to playlist -->
 <a href="/playlist" class="secondaryLink">Back to Playlist</a>
-
 </body>
 </html>

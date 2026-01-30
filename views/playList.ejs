@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Sean Sonderegger">
-    <meta name="description" content="Music Player Application utilizing JavaScript and Node. Allows users to create and manage playlists of their favorite songs.">
+    <meta name="description" content="Music Player Application utilizing JavaScript and Node. Holds songs chosen by users and stores them in local storage.">
     <title>CSE310MusicPlayer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
@@ -12,25 +12,26 @@
     <link rel="stylesheet" href="/styles/musicPlayer.css">
 </head>
 <body>
+  <!-- container for playlist -->
   <div class="playlistDiv">
-
 <h1>Playlist</h1>
-
+<!-- link to add more songs -->
 <a class="buttonLink" href="/">Add More Songs</a>
-
+<!-- array-->
 <div id="playlist"></div>
 
 <script>
+  // render playlist from local storage
   function renderPlaylist() {
     const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
     const container = document.getElementById("playlist");
     container.innerHTML = "";
-
+    // message for empty playlist
     if (playlist.length === 0) {
       container.innerHTML = "<p>No songs in playlist.</p>";
       return;
     }
-
+    // loop through songs and create HTML
     playlist.forEach((song, index) => {
       const songHTML = `
       <div class="songCard">
@@ -58,18 +59,16 @@
       container.insertAdjacentHTML("beforeend", songHTML);
     });
   }
-
+  // delete song from playlist
   function deleteSong(index) {
     const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
     playlist.splice(index, 1);
     localStorage.setItem("playlist", JSON.stringify(playlist));
     renderPlaylist();
   }
-
+  // initial render
   renderPlaylist();
 </script>
-
 </div>
-
 </body>
 </html>

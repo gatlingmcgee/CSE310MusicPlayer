@@ -12,23 +12,20 @@
     <link rel="stylesheet" href="/styles/musicPlayer.css">
 </head>
 <body>
+    <!-- container card for songs -->
 <div class="addSongDiv">
     <h1>Add a Song</h1>
-
-
+    <!-- form to add song details -->
     <form action="/player" method="POST">
     <label>
     Song Title:
     <input type="text" name="title" required />
     </label><br /><br />
-
-
+    <!-- artist inout -->
     <label>
     Artist:
     <input type="text" name="artist" required />
     </label><br /><br />
-
-
     <label>
     Genre:
     <select name="genre">
@@ -38,12 +35,10 @@
     <option>Hip-Hop</option>
     </select>
     </label><br /><br />
-
-
+    <!-- submit button -->
     <button type="submit" class="buttonLink">Add Song</button>
     </form>
-
-
+    <!-- navigation to playlist-->
     <a href="/playlist" class="secondaryLink">View Playlist</a>
 </div>
 </body>
