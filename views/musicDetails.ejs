@@ -7,41 +7,44 @@
     <meta name="description" content="Music Player Application utilizing JavaScript and Node. Allows users to create and manage playlists of their favorite songs.">
     <title>CSE310MusicPlayer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles/musicPlayer.css">
+    <link rel="stylesheet" href="/styles/musicPlayer.css">
 </head>
 <body>
-<h1>Add a Song</h1>
+<div class="addSongDiv">
+    <h1>Add a Song</h1>
 
 
-<form action="/player" method="POST">
-<label>
-Song Title:
-<input type="text" name="title" required />
-</label><br /><br />
+    <form action="/player" method="POST">
+    <label>
+    Song Title:
+    <input type="text" name="title" required />
+    </label><br /><br />
 
 
-<label>
-Artist:
-<input type="text" name="artist" required />
-</label><br /><br />
+    <label>
+    Artist:
+    <input type="text" name="artist" required />
+    </label><br /><br />
 
 
-<label>
-Genre:
-<select name="genre">
-<option>Rock</option>
-<option>Pop</option>
-<option>Jazz</option>
-<option>Hip-Hop</option>
-</select>
-</label><br /><br />
+    <label>
+    Genre:
+    <select name="genre">
+    <option>Rock</option>
+    <option>Pop</option>
+    <option>Jazz</option>
+    <option>Hip-Hop</option>
+    </select>
+    </label><br /><br />
 
 
-<button type="submit">Add Song</button>
-</form>
+    <button type="submit" class="buttonLink">Add Song</button>
+    </form>
 
 
-<a href="/playlist">View Playlist</a>
+    <a href="/playlist" class="secondaryLink">View Playlist</a>
+</div>
 </body>
 </html>

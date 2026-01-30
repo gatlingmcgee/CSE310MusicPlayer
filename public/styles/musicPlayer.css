@@ -1,0 +1,202 @@
+:root {
+    --background-color: #062332;
+    --secondary-color: #d8ecff;
+}
+
+body {
+    font-family: 'Itim', cursive;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+/*---------------- Add a Song Page (musicPlayer.ejs) ----------------*/
+
+.addSongDiv {
+    margin: 50px auto;
+    background: #0e3a4f;
+    padding: 30px;
+    border-radius: 16px;
+    width: auto;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.addSongDiv h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.addSongDiv label {
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+.nowPlayingDiv {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input[type="text"], select {
+    width: 90%;
+    padding: 12px 14px;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 2px solid #1f5a73;
+    background-color: #083246;
+    color: white;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #66b3ff;
+    box-shadow: 0 0 0 3px rgba(102,179,255,0.25);
+}
+
+/*---------------- Playlist Page (playList.ejs) ----------------*/
+
+#playlist {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.songCard {
+    background: var(--secondary-color);
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.songCard a {
+    color: var(--background-color);
+}
+
+.songCard h3 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.deleteBtn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Itim', cursive;
+  font-size: 25px;
+background-color: var(--background-color);
+}
+
+.deleteBtn:hover {
+  transform: scale(1.05);
+}
+
+/*---------------- Song Details Page (songDetails.ejs) ----------------*/
+
+.imageYoutube {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/*---------------- Miscellaneous ----------------*/
+
+.buttonLink {
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: auto;
+    margin: 15px auto;
+    margin-bottom: 50px;
+    padding: 12px 20px;
+    background-color: var(--secondary-color);
+    color: var(--background-color) !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.buttonLink:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.secondaryLink {
+    display: inline-block;
+    margin: 18px;
+    color: #9ed1ff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: opacity 0.2s;
+}
+
+.secondaryLink:hover {
+    opacity: 0.75;
+}
+
+.iframeContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.iframeContainer:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+h1, p {
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #66b3ff;
+    margin: 12px auto 0;
+    border-radius: 4px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 20px;
+}
+
+button {
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 900px) {
+    #playlist {
+        grid-template-columns: 1fr;
+    }
+}

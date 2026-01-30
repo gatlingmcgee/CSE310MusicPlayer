@@ -7,44 +7,69 @@
     <meta name="description" content="Music Player Application utilizing JavaScript and Node. Allows users to create and manage playlists of their favorite songs.">
     <title>CSE310MusicPlayer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles/musicPlayer.css">
+    <link rel="stylesheet" href="/styles/musicPlayer.css">
 </head>
 <body>
+  <div class="playlistDiv">
 
 <h1>Playlist</h1>
+
+<a class="buttonLink" href="/">Add More Songs</a>
 
 <div id="playlist"></div>
 
 <script>
-  const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
-  const container = document.getElementById("playlist");
+  function renderPlaylist() {
+    const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
+    const container = document.getElementById("playlist");
+    container.innerHTML = "";
 
-  if (playlist.length === 0) {
-    container.innerHTML = "<p>No songs in playlist.</p>";
-  } else {
-    playlist.forEach(song => {
+    if (playlist.length === 0) {
+      container.innerHTML = "<p>No songs in playlist.</p>";
+      return;
+    }
+
+    playlist.forEach((song, index) => {
       const songHTML = `
+      <div class="songCard">
         <h3>
           <a href="/song/${song.videoId}">${song.title}</a>
         </h3>
 
         <p>${song.artist} (${song.genre})</p>
-        <iframe
-          width="300"
-          height="170"
-          src="https://www.youtube.com/embed/${song.videoId}"
-          allowfullscreen>
-        </iframe>
-        <hr />
+
+        <div class="iframeContainer">
+          <iframe
+            width="400"
+            height="270"
+            src="https://www.youtube.com/embed/${song.videoId}"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <button onclick="deleteSong(${index})" class="deleteBtn">
+          Delete
+        </button>
+      </div>
       `;
+
       container.insertAdjacentHTML("beforeend", songHTML);
     });
   }
+
+  function deleteSong(index) {
+    const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
+    playlist.splice(index, 1);
+    localStorage.setItem("playlist", JSON.stringify(playlist));
+    renderPlaylist();
+  }
+
+  renderPlaylist();
 </script>
 
-
-<a href="/">Add More Songs</a>
+</div>
 
 </body>
 </html>

@@ -1,6 +1,3 @@
-console.log('YouTube Key:', process.env.YOUTUBE_API_KEY);
-
-
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
@@ -10,6 +7,7 @@ const PORT = 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 // Temporary in-memory playlist
 const playlist = [];
@@ -87,10 +85,6 @@ app.post('/player', async (req, res) => {
 // Page 3: Playlist
 app.get('/playlist', (req, res) => {
   res.render('playlist', { playlist });
-});
-
-app.listen(PORT, () => {
-  console.log(`Music app running at http://localhost:${PORT}`);
 });
 
 // Page 4: Song Details (Uses YouTube Videos API)

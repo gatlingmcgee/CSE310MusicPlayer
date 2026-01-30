@@ -7,8 +7,9 @@
     <meta name="description" content="Music Player Application utilizing JavaScript and Node. Allows users to create and manage playlists of their favorite songs.">
     <title>CSE310MusicPlayer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles/musicPlayer.css">
+    <link rel="stylesheet" href="/styles/musicPlayer.css">
 </head>
 <body>
 <h1>Now Playing</h1>
@@ -19,20 +20,23 @@
 <p><strong>Genre:</strong> <%= genre %></p>
 
 
-<iframe
+<div class="iframeContainer">
+  <iframe
   width="560"
   height="315"
   src="https://www.youtube.com/embed/<%= videoId %>"
   frameborder="0"
   allow="encrypted-media"
   allowfullscreen>
-</iframe>
+  </iframe>
+</div>
 
 
-
-<br /><br />
-<a href="/">Add Another Song</a> |
-<a href="/playlist">Go to Playlist</a>
+<div class="nowPlayingDiv">
+  <br /><br />
+  <a href="/" class="secondaryLink">Add Another Song</a> |
+  <a href="/playlist" class="secondaryLink">Go to Playlist</a>
+</div>
 
 
 <script>
@@ -43,15 +47,19 @@
     videoId: "<%= videoId %>"
   };
 
-  // Get existing playlist or create empty array
   const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
 
-  // Add new song
-  playlist.push(song);
+  const alreadyExists = playlist.some(s => s.videoId === song.videoId);
 
-  // Save back to localStorage
-  localStorage.setItem("playlist", JSON.stringify(playlist));
+  if (!alreadyExists) {
+    playlist.push(song);
+    localStorage.setItem("playlist", JSON.stringify(playlist));
+    alert("Song added to playlist!");
+  } else {
+    alert("This song is already in your playlist!");
+  }
 </script>
+
 
 
 
